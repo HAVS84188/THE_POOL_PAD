@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE POOL PAD | Ultimate Gaming Arena</title>
+    <style>
+        /* --- HIGH-CONTRAST AMBIENT THEME --- */
+        :root {
+            --neon-green: #39ff14;
+            --neon-cyan: #00f3ff;
+            --neon-pink: #ff007f;
+            --neon-yellow: #fff01f;
+            --bg-void: #060608;
+            --bg-card: #0e0e12;
+            --text-main: #ffffff;
+            --whatsapp: #25D366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        /* --- FIXED NAVIGATION HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(6, 6, 8, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid #1a1a24;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--neon-cyan);
+        }
+
+        .loc-badge {
+            color: #8f92a1;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid #222230;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(20, 20, 30, 0.5);
+        }
+
+        /* --- HERO IMMERSIVE ENTRYPOINT --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(0deg, var(--bg-void) 0%, rgba(6,6,8,0.8) 100%), 
+                        url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 3px solid var(--neon-cyan);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .glitch-title {
+            font-size: 6rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            position: relative;
+            color: white;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px var(--neon-cyan);
+            margin-bottom: 15px;
+        }
+        .glitch-title::before, .glitch-title::after {
+            content: "THE POOL PAD";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-void);
+        }
+        .glitch-title::before {
+            left: 2px; text-shadow: -2px 0 #ff007f; clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+        .glitch-title::after {
+            left: -2px; text-shadow: -2px 0 #39ff14; clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(15px, 9999px, 35px, 0); }
+            20% { clip: rect(85px, 9999px, 105px, 0); }
+            40% { clip: rect(45px, 9999px, 65px, 0); }
+            60% { clip: rect(15px, 9999px, 95px, 0); }
+            80% { clip: rect(65px, 9999px, 75px, 0); }
+            100% { clip: rect(35px, 9999px, 55px, 0); }
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            color: #d1d2dc;
+            letter-spacing: 4px;
+            margin-bottom: 45px;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+        .nav-hub {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px;
+        }
+        
+        .btn {
+            padding: 16px 36px;
+            color: #050505;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            clip-path: polygon(12% 0, 100% 0, 100% 75%, 88% 100%, 0 100%, 0 25%);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+        }
+        
+        .btn:hover { 
+            transform: translateY(-4px);
+        }
+        
+        .btn-cyan { background: var(--neon-cyan); }
+        .btn-cyan:hover { box-shadow: 0 0 25px rgba(0, 243, 255, 0.5); }
+        .btn-pink { background: var(--neon-pink); color: white; }
+        .btn-pink:hover { box-shadow: 0 0 25px rgba(255, 0, 127, 0.5); }
+        .btn-green { background: var(--neon-green); }
+        .btn-green:hover { box-shadow: 0 0 25px rgba(57, 255, 20, 0.5); }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 110px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 65px;
+        }
+        
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            display: inline-block;
+            padding-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .header-ps5 h2 { border-bottom: 4px solid var(--neon-cyan); text-shadow: 0 0 20px rgba(0,243,255,0.3); }
+        .header-arcade h2 { border-bottom: 4px solid var(--neon-pink); text-shadow: 0 0 20px rgba(255,0,127,0.3); }
+        .header-snack h2 { border-bottom: 4px solid var(--neon-yellow); text-shadow: 0 0 20px rgba(255,240,31,0.3); }
+
+        .section-header p {
+            color: #7c7e8c;
+            font-size: 1.15rem;
+            margin-top: 18px;
+            font-weight: 400;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid #1c1c24;
+            border-radius: 24px;
+            padding: 45px 35px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px);
+            background: #14141c;
+        }
+
+        .ps5-card { border-top: 4px solid #282836; }
+        .ps5-card:hover { box-shadow: 0 20px 40px rgba(0, 243, 255, 0.2); border-color: var(--neon-cyan); }
+        
+        .arcade-card { border-top: 4px solid #282836; }
+        .arcade-card:hover { box-shadow: 0 20px 40px rgba(255, 0, 127, 0.2); border-color: var(--neon-pink); }
+        
+        .snack-card { border-top: 4px solid #282836; text-align: left; padding: 35px; }
+        .snack-card:hover { box-shadow: 0 20px 40px rgba(255, 240, 31, 0.2); border-color: var(--neon-yellow); }
+
+        .price-tag {
+            font-size: 3.8rem;
+            font-weight: 900;
+            margin: 20px 0;
+            color: #fff;
+            letter-spacing: -1px;
+        }
+        
+        .price-tag span { 
+            font-size: 1.2rem; 
+            color: #626575; 
+            font-weight: 500;
+            letter-spacing: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .badge-solo { background: #282836; color: #e1e2ef; }
+        .badge-duo { background: var(--neon-cyan); color: #000; }
+        .badge-squad { background: var(--neon-green); color: #000; }
+        .badge-arcade { background: var(--neon-pink); color: #fff; }
+
+        .card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 15px 0 12px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .snack-card h3 {
+            margin: 0 0 12px 0; 
+            color: var(--neon-yellow); 
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: #9da0b0;
+            font-size: 1.05rem;
+            line-height: 1.65;
+        }
+
+        .action-indicator {
+            font-size: 0.85rem;
+            margin-top: 28px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+        
+        .whatsapp-float svg {
+            width: 38px;
+            height: 38px;
+            fill: white;
+        }
+        
+        .whatsapp-float:hover { 
+            transform: scale(1.15) rotate(8deg);
+            box-shadow: 0 16px 40px rgba(37, 211, 102, 0.7);
+        }
+
+        footer {
+            background: #030305;
+            padding: 90px 20px;
+            text-align: center;
+            border-top: 1px solid #14141c;
+        }
+        
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            text-shadow: 0 0 15px rgba(255, 0, 127, 0.2);
+        }
+        
+        .footer-address {
+            color: #555766;
+            font-size: 1.05rem;
+            margin-bottom: 45px;
+        }
+
+        .avs-brand {
+            font-size: 0.95rem;
+            color: #555766;
+            letter-spacing: 1.5px;
+            border: 1px solid #1c1c26;
+            display: inline-block;
+            padding: 22px 45px;
+            border-radius: 20px;
+            background: rgba(14, 14, 22, 0.6);
+            line-height: 1.8;
+            max-width: 550px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+        }
+        
+        .avs-brand span { 
+            color: var(--neon-green); 
+            font-weight: 800;
+            text-shadow: 0 0 15px rgba(57,255,20,0.3);
+        }
+
+        .avs-brand small {
+            color: #a4a7b8;
+            font-size: 0.8rem;
+            display: block;
+            margin-top: 8px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 900px) {
+            .glitch-title { font-size: 4.2rem; }
+            .hero p { font-size: 1.3rem; }
+            .section-header h2 { font-size: 2.4rem; }
+        }
+
+        @media (max-width: 600px) {
+            .glitch-title { font-size: 3rem; }
+            .btn { width: 100%; text-align: center; }
+            .whatsapp-float { bottom: 25px; right: 25px; width: 68px; height: 68px; }
+            .whatsapp-float svg { width: 32px; height: 32px; }
+            .card { padding: 35px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">THE POOL <span>PAD</span></div>
+            <div class="loc-badge">GORAKHPUR</div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="glitch-title">THE POOL PAD</div>
+        <p>Nauka Vihar Road, Gorakhpur</p>
+        <div class="nav-hub">
+            <a href="#ps5-zone" class="btn btn-cyan">PS5 Zone</a>
+            <a href="#classic-zone" class="btn btn-pink">Arcade & Tables</a>
+            <a href="#snack-zone" class="btn btn-green">Refuel Hub</a>
+        </div>
+    </div>
+
+    <div class="container" id="ps5-zone">
+        <div class="section-header header-ps5">
+            <h2>SONY PS5 ARENA</h2>
+            <p>Next-generation consoles running high frame-rate rendering engines across immersive configurations.</p>
+        </div>
+        <div class="grid">
+            
+            <div class="card ps5-card">
+                <span class="badge badge-solo">Single Player</span>
+                <div class="price-tag">₹120<span>/hr</span></div>
+                <p>Immersive standalone campaigns, dedicated high-speed resolution monitors, and focused training environments.</p>
+                <div class="action-indicator" style="color: var(--neon-cyan);">Solo Grid Open</div>
+            </div>
+
+            <div class="card ps5-card" style="border-top-color: var(--neon-cyan);">
+                <span class="badge badge-duo">Two Players</span>
+                <div class="price-tag">₹180<span>/hr</span></div>
+                <p>Head-to-head competitive local multiplayer options. Optimized setups for FIFA, Tekken, and Mortal Kombat matches.</p>
+                <div class="action-indicator" style="color: var(--neon-cyan);">Dual Input Link Active</div>
+            </div>
+
+            <div class="card ps5-card" style="border-top-color: var(--neon-green);">
+                <span class="badge badge-squad">Three Players</span>
+                <div class="price-tag">₹240<span>/hr</span></div>
+                <p>Cooperative group gameplay dynamics. Triple-controller synchronization calibrated for competitive co-op gaming loops.</p>
+                <div class="action-indicator" style="color: var(--neon-green);">Squad Sync Confirmed</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container" id="classic-zone" style="background: #0a0a0f; border-top: 1px solid #14141c; border-bottom: 1px solid #14141c; max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 10px 0;">
+            <div class="section-header header-arcade">
+                <h2>ARCADE & BOARD GAMES</h2>
+                <p>Tactile cue tables, low-friction balance rails, and mental strategic layout arrays.</p>
+            </div>
+            <div class="grid">
+                
+                <div class="card arcade-card">
+                    <span class="badge badge-arcade">Billiards</span>
+                    <h3>Premium Slates</h3>
+                    <p>Flawless directional felt, true-grain balanced cue stocks, and professional responsive cushion profiles.</p>
+                    <div class="action-indicator" style="color: var(--neon-pink);">Inquire at Counter for Rates</div>
+                </div>
+
+                <div class="card arcade-card" style="border-top-color: #8a2be2;">
+                    <span class="badge badge-arcade" style="background: #8a2be2;">Foosball</span>
+                    <h3>Table Soccer</h3>
+                    <p>High-torque rotation bearings, weighted figures, and heavy steel frame foundations built for intense challenge runs.</p>
+                    <div class="action-indicator" style="color: #8a2be2;">Table Ready for Play</div>
+                </div>
+
+                <div class="card arcade-card" style="border-top-color: #00ff87;">
+                    <span class="badge badge-arcade" style="background: #00ff87; color: black;">Ludo & Chess</span>
+                    <h3>Mind Strategy</h3>
+                    <p>Tactical chess matrix interfaces or casual group ludo dice rollers. Premium table mats always ready to deploy.</p>
+                    <div class="action-indicator" style="color: #00ff87;">Complimentary with Refreshments</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="snack-zone">
+        <div class="section-header header-snack">
+            <h2>THE REFUEL BAR</h2>
+            <p>Hot savory bites, quick-pause finger foods, and ice-cold premium blended drinks served directly to you.</p>
+        </div>
+        <div class="grid">
+            
+            <div class="card snack-card">
+                <div style="font-size: 1.8rem; margin-bottom: 12px;">🍔</div>
+                <h3>Cafe Classics</h3>
+                <p>Thick-patty flame-grilled cheese burgers, toasted double-decker club sandwiches, and loaded customized instant noodles.</p>
+            </div>
+
+            <div class="card snack-card">
+                <div style="font-size: 1.8rem; margin-bottom: 12px;">🍟</div>
+                <h3>Crispy Munchies</h3>
+                <p>Golden-fried house salted fries, fully stacked double-cheese nachos, and seasoned finger snacks optimized for clean gaming loops.</p>
+            </div>
+
+            <div class="card snack-card">
+                <div style="font-size: 1.8rem; margin-bottom: 12px;">🥤</div>
+                <h3>Chilled Shakes</h3>
+                <p>Frosted carbonated fruit mixers, heavy blended thick milkshakes, and cold high-performance energetic caffeine beverages.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="https://wa.me!" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contact via WhatsApp">
+       <svg viewBox="0 0 448 512">
+           <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+       </svg>
+    </a>
+
+    <footer>
+        <div class="footer-logo">THE POOL PAD</div>
+        <div class="footer-address">Near Pool Pad Gaming Center, Nauka Vihar Road, Gorakhpur</div>
+        
+        <div class="avs-brand">
+            WEBSITE CONCEPT ENGINE DESIGNED & DEPLOYED BY<br>
+            <span>AVS AGENCIES</span><br>
+            <small>CHIEF ARCHITECT: MR. ATHARVA VEER SINGH</small>
+        </div>
+    </footer>
+
+</body>
+</html>
